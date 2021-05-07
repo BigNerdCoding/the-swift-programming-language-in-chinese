@@ -1,6 +1,6 @@
 # 文档翻译 & 校对工作记录
 
-Swift 官方文档中文翻译工作由[numbbbbb](https://github.com/numbbbbb)发起并主导，该工作已经得到了苹果官方的认可。下面是各个版本官方文档翻译和校对工作的主要贡献者，排名不分先后。
+Swift 官方文档中文翻译由 [numbbbbb](https://github.com/numbbbbb) 发起并主导，本项目已经得到了苹果官方的 [认可](https://swift.org/documentation/)（Translations 部分）。下面是各个版本官方文档翻译和校对工作的主要贡献者，排名不分先后。
 
 ## Swift 5.x 主要贡献者
 
@@ -12,11 +12,18 @@ Swift 官方文档中文翻译工作由[numbbbbb](https://github.com/numbbbbb)�
 - [DarrenChen123](https://github.com/DarrenChen123)
 - [dzyding](https://github.com/dzyding)
 - [Hale](https://github.com/wuqiuhao)
+- [Joeytat](https://github.com/joeytat)
 - [jojotov](https://github.com/jojotov)
+- [Licardo](https://github.com/L1cardo)
 - [Khala-wan](https://github.com/Khala-wan)
 - [Nemocdz](https://github.com/Nemocdz)
 - [numbbbbb](https://github.com/numbbbbb)
+- [pmst](https://github.com/colourful987)
+- [Phenmod](https://github.com/Phenmod)
+- [RickeyBoy](https://github.com/RickeyBoy)
+- [SunsetWan](https://github.com/SunsetWan)
 - [WAMaker](https://github.com/WAMaker)
+- [YiYiZheng](https://github.com/YiYiZheng)
 - [Yousanflics](https://github.com/Yousanflics)
 
 ## Swift 4.x 主要贡献者
@@ -143,4 +150,3 @@ Swift 官方文档中文翻译工作由[numbbbbb](https://github.com/numbbbbb)�
 - [zqp](https://github.com/zqp)
 - [成都老码团队翻译组-Arya](http://weibo.com/littlekok/)
 - [成都老码团队翻译组-Oberyn](http://weibo.com/u/5241713117)
-
