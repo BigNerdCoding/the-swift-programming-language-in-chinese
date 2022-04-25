@@ -43,7 +43,7 @@ let explicitDouble: Double = 70
 值永远不会被隐式转换为其他类型。如果你需要把一个值转换成其他类型，请显式转换。
 
 ```swift
-let label = "The width is"
+let label = "The width is "
 let width = 94
 let widthLabel = label + String(width)
 ```
@@ -65,7 +65,7 @@ let fruitSummary = "I have \(apples + oranges) pieces of fruit."
 > 
 > 使用 `\()` 来把一个浮点计算转换成字符串，并加上某人的名字，和他打个招呼。
 
-使用三个双引号（`"""`）来包含多行字符串内容。每行行首的缩进会被去除，直到和结尾引号的缩进相匹配。举个例子：
+使用三个双引号（`"""`）来包含多行字符串内容。每行行首的缩进会被去除，只要和结尾引号的缩进相匹配。举个例子：
 
 ```swift
 let quotation = """
@@ -542,7 +542,7 @@ if let convertedRank = Rank(rawValue: 3) {
 }
 ```
 
-枚举的关联值是实际值，并不是原始值的另一种表达方法。实际上，如果没有比较有意义的原始值，你就不需要提供原始值。
+枚举值是实际值，并不是原始值的另一种表达方法。实际上，如果没有比较有意义的原始值，你就不需要提供原始值。
 
 ```swift
 enum Suit {
