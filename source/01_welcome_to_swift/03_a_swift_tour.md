@@ -10,12 +10,6 @@ print("Hello, world!")
 
 这个教程会通过一系列编程例子来让你对 Swift 有初步了解，如果你有什么不理解的地方也不用担心——任何本章介绍的内容都会在后面的章节中详细讲解到。
 
-> 注意
-> 
-> 最好的体验是把这一章作为 Playground 文件在 Xcode 中打开。 Playgrounds 允许你可以编辑代码并立刻看到输出结果。
-> 
-> [下载 Playground](https://docs.swift.org/swift-book/GuidedTour/GuidedTour.playground.zip)
-
 ## 简单值 {#simple-values}
 
 使用 `let` 来声明常量，使用 `var` 来声明变量。一个常量的值，在编译的时候，并不需要有明确的值，但是你只能为它赋值一次。这说明你可以用一个常量来命名一个值，一次赋值就可在多个地方使用。
@@ -152,6 +146,14 @@ if let name = optionalName {
 let nickName: String? = nil
 let fullName: String = "John Appleseed"
 let informalGreeting = "Hi \(nickName ?? fullName)"
+```
+
+你还可以使用较短的代码解包一个值，并且对该被包装值使用相同的名称。
+
+```swift
+if let nickname {
+	print("Hey, \(nickName)")
+}
 ```
 
 `switch` 支持任意类型的数据以及各种比较操作——不仅仅是整数以及测试相等。
@@ -612,6 +614,52 @@ let threeOfSpadesDescription = threeOfSpades.simpleDescription()
 > 练习
 > 
 > 写一个方法，创建一副完整的扑克牌，这些牌是所有 rank 和 suit 的组合。
+
+## 并发性 {#concurrency}
+
+使用 `async` 标记异步运行的函数
+
+```swift
+func fetchUserID(from server: String) async -> Int {
+    if server == "primary" {
+        return 97
+    }
+    return 501
+}
+```
+
+您还可以通过在函数名前添加 `await` 来标记对异步函数的调用
+
+```swift
+func fetchUsername(from server: String) async -> String {
+    let userID = await fetchUserID(from: server)
+    if userID == 501 {
+        return "John Appleseed"
+    }
+    return "Guest"
+}
+```
+
+使用 `async let` 来调用异步函数，并让其与其它异步函数并行运行。
+使用 `await` 以使用该异步函数返回的值。
+
+```swift
+func connectUser(to server: String) async {
+    async let userID = fetchUserID(from: server)
+    async let username = fetchUsername(from: server)
+    let greeting = await "Hello \(username), user ID \(userID)"
+    print(greeting)
+}
+```
+
+使用 `Task` 从同步代码中调用异步函数且不等待它们返回结果
+
+```swift
+Task {
+	await connectUser(to: "primary")
+}
+//Prints "Hello Guest, user ID 97"
+```
 
 ## 协议和扩展 {#protocols-and-extensions}
 

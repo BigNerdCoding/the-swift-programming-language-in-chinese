@@ -225,6 +225,9 @@ print(anotherGreeting(for: "Dave"))
 
 正如你将会在 [简略的 Getter 声明](./10_Properties.md) 里看到的， 一个属性的 getter 也可以使用隐式返回的形式。
 
+>注意
+
+>作为隐式返回值编写的代码需要返回一些值。例如，你不能使用 `print(13)` 作为隐式返回值。然而，你可以使用不返回值的函数（如 `fatalError("Oh no!")`）作为隐式返回值，因为 Swift 知道它们并不会产生任何隐式返回。
 
 ## 函数参数标签和参数名称 {#Function-Argument-Labels-and-Parameter-Names}
 
@@ -310,7 +313,7 @@ arithmeticMean(3, 8.25, 18.75)
 // 返回 10.0, 是这 3 个数的平均数。
 ```
 
-一个函数能拥有多个可变参数。可变参数后的第一个行参前必须加上实参标签。实参标签用于区分实参是传递给可变参数，还是后面的行参。
+一个函数能拥有多个可变参数。可变参数后的第一个形参前必须加上实参标签。实参标签用于区分实参是传递给可变参数，还是后面的形参。
 
 ### 输入输出参数 {#in-out-parameters}
 
@@ -454,7 +457,7 @@ func stepBackward(_ input: Int) -> Int {
 }
 ```
 
-如下名为 `chooseStepFunction(backward:)` 的函数，它的返回类型是 `(Int) -> Int` 类型的函数。`chooseStepFunction(backward:)` 根据布尔值 `backwards` 来返回 `stepForward(_:)` 函数或 `stepBackward(_:)` 函数：
+如下名为 `chooseStepFunction(backward:)` 的函数，它的返回类型是 `(Int) -> Int` 类型的函数。`chooseStepFunction(backward:)` 根据布尔值 `backward` 来返回 `stepForward(_:)` 函数或 `stepBackward(_:)` 函数：
 
 ```swift
 func chooseStepFunction(backward: Bool) -> (Int) -> Int {

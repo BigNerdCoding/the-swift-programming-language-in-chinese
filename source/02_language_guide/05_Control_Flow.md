@@ -120,7 +120,7 @@ while condition {
 
 下面的例子来玩一个叫做*蛇和梯子*（也叫做*滑道和梯子*）的小游戏：
 
-![image](https://docs.swift.org/swift-book/_images/snakesAndLadders_2x.png)
+![image](https://docs.swift.org/swift-book/images/snakesAndLadders@2x.png)
 
 游戏的规则如下：
 
@@ -422,7 +422,7 @@ default:
 // 输出“(1, 1) is inside the box”
 ```
 
-![image](https://docs.swift.org/swift-book/_images/coordinateGraphSimple_2x.png)
+![image](https://docs.swift.org/swift-book/images/coordinateGraphSimple@2x.png)
 
 在上面的例子中，`switch` 语句会判断某个点是否是原点 (0, 0)，是否在红色的 x 轴上，是否在橘黄色的 y 轴上，是否在一个以原点为中心的4x4的蓝色矩形里，或者在这个矩形外面。
 
@@ -447,7 +447,7 @@ case let (x, y):
 // 输出“on the x-axis with an x value of 2”
 ```
 
-![image](https://docs.swift.org/swift-book/_images/coordinateGraphMedium_2x.png)
+![image](https://docs.swift.org/swift-book/images/coordinateGraphMedium@2x.png)
 
 在上面的例子中，`switch` 语句会判断某个点是否在红色的 x 轴上，是否在橘黄色的 y 轴上，或者不在坐标轴上。
 
@@ -476,7 +476,7 @@ case let (x, y):
 // 输出“(1, -1) is on the line x == -y”
 ```
 
-![image](https://docs.swift.org/swift-book/_images/coordinateGraphComplex_2x.png)
+![image](https://docs.swift.org/swift-book/images/coordinateGraphComplex@2x.png)
 
 在上面的例子中，`switch` 语句会判断某个点是否在绿色的对角线 `x == y` 上，是否在紫色的对角线 `x == -y` 上，或者不在对角线上。
 
@@ -655,7 +655,7 @@ print(description)
 
 游戏的棋盘和之前一样：
 
-![image](https://docs.swift.org/swift-book/_images/snakesAndLadders_2x.png)
+![image](https://docs.swift.org/swift-book/images/snakesAndLadders@2x.png)
 
 `finalSquare`、`board`、`square` 和 `diceRoll` 值被和之前一样的方式初始化：
 
@@ -765,3 +765,35 @@ if #available(平台名称 版本号, ..., *) {
     APIs 不可用，使用先前版本API的语句将执行
 }
 ```
+
+当你在 `guard` 语句中使用可用性条件时，它将细化用于该代码块中其余代码的可用性信息。
+
+```swift
+@avaliable(macOS 10.12, *)
+struct ColorPreference {
+	var bestColor = "blue"
+}
+func chooseBestColor() -> String {
+	guard #avaliable(macOS 10.12, *) else{
+		return "gray"
+	}
+	let colors = ColorPreference()
+	return colors.bestColor
+}
+```
+
+在上面的例子中，结构体 `ColorPreference` 需要 macOS 10.12 或更高的版本。函数 `ChooseBestColor()` 先以一个可用性防护开头，若平台版本过低无法运行 `ColorPreference` 时，将执行该低版本平台可用的行为。而在 `guard` 语句后，你将能够使用 macOS 10.12 或更高版本的API。
+
+除了 `#available` 以外， Swift 还支持通过不可用性条件来进行不可用性检查。举例如下，两种检查都能实现同样的效果：
+
+```swift
+if #available(iOS 10, *){
+} else {
+	//回滚代码
+}
+if #unavailable(iOS 10) {
+	//回滚代码
+}
+```
+
+若可用性检查只提供了回滚代码，改用用 `#unavailable` 能提升程序整体的可读性。

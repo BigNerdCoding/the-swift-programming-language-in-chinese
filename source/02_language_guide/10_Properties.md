@@ -105,7 +105,7 @@ Swift 编程语言中把这些理论统一用属性来实现。Swift 中的属�
 
 ## 计算属性 {#computed-properties}
 
-除存储属性外，类、结构体和枚举可以定义*计算属性*。计算属性不直接存储值，而是提供一个 getter 和一个可选的 setter，来间接获取和设置其他属性或变量的值。
+除存储属性外，类、结构体和枚举还可以定义*计算属性*。计算属性不直接存储值，而是提供一个 getter 和一个可选的 setter，来间接获取和设置其他属性或变量的值。
 
 ```swift
 struct Point {
@@ -132,6 +132,7 @@ struct Rect {
 var square = Rect(origin: Point(x: 0.0, y: 0.0),
     size: Size(width: 10.0, height: 10.0))
 let initialSquareCenter = square.center
+// initialSquareCenter 位于（5.0， 5.0）
 square.center = Point(x: 15.0, y: 15.0)
 print("square.origin is now at (\(square.origin.x), \(square.origin.y))")
 // 打印“square.origin is now at (10.0, 10.0)”
@@ -147,11 +148,11 @@ print("square.origin is now at (\(square.origin.x), \(square.origin.y))")
 
 上述例子中创建了一个名为 `square` 的 `Rect` 实例，初始值原点是 `(0, 0)`，宽度高度都是 `10`。如下图中蓝色正方形所示。
 
-`square` 的 `center` 属性可以通过点运算符（`square.center`）来访问，这会调用该属性的 getter 来获取它的值。跟直接返回已经存在的值不同，getter 实际上通过计算然后返回一个新的 `Point` 来表示 `square` 的中心点。如代码所示，它正确返回了中心点 `(5, 5)`。
+`square` 的 `center` 属性可以通过点运算符（`square.center`）来访问，这会调用该属性的 getter 来获取它的值。跟直接返回已经存在的值不同，getter 实际上是通过计算然后返回一个新的 `Point` 来表示 `square` 的中心点。如代码所示，它正确返回了中心点 `(5, 5)`。
 
 `center` 属性之后被设置了一个新的值 `(15, 15)`，表示向右上方移动正方形到如下图橙色正方形所示的位置。设置属性 `center` 的值会调用它的 setter 来修改属性 `origin` 的 `x` 和 `y` 的值，从而实现移动正方形到新的位置。
 
-<img src="https://docs.swift.org/swift-book/_images/computedProperties_2x.png" alt="Computed Properties sample" width="388" height="387" />
+<img src="https://docs.swift.org/swift-book/images/computedProperties@2x.png" alt="Computed Properties sample" width="388" height="387" />
 
 ### 简化 Setter 声明 {#shorthand-setter-declaration}
 
@@ -302,7 +303,7 @@ struct TwelveOrLess {
 }
 ```
 
-这个 setter 确保新值小于 12，而且返回被存储的值。
+这个 setter 确保新值小于或等于 12，而且返回被存储的值。
 > 注意
 > 
 > 上面例子以 `private` 的方式声明 `number` 变量，这使得 `number` 仅在 `TwelveOrLess` 的实现中使用。写在其他地方的代码通过使用 `wrappedValue` 的 getter 和 setter 来获取这个值，但不能直接使用 `number`。有关 `private` 的更多信息，请参考 [访问控制](./26_Access_Control.md)
@@ -627,7 +628,7 @@ print(SomeClass.computedTypeProperty)
 
 下图展示了如何把两个声道结合来模拟立体声的音量。当声道的音量是 `0`，没有一个灯会亮；当声道的音量是 `10`，所有灯点亮。本图中，左声道的音量是 `9`，右声道的音量是 `7`：
 
-<img src="https://docs.swift.org/swift-book/_images/staticPropertiesVUMeter_2x.png" alt="Static Properties VUMeter" width="243" height="357" />
+<img src="https://docs.swift.org/swift-book/images/staticPropertiesVUMeter@2x.png" alt="Static Properties VUMeter" width="243" height="357" />
 
 上面所描述的声道模型使用 `AudioChannel` 结构体的实例来表示：
 
