@@ -1,4 +1,4 @@
-# The Swift Programming Language (6.1)
+# The Swift Programming Language (6.2.3) 中文版
 
 @Metadata {
   @TechnologyRoot
@@ -12,13 +12,13 @@
 
 ## Topics
 
-### Welcome to Swift
+### 欢迎来到 Swift
 
 - <doc:AboutSwift>
 - <doc:Compatibility>
 - <doc:GuidedTour>
 
-### Language Guide
+### 语言指南
 
 - <doc:TheBasics>
 - <doc:BasicOperators>
@@ -50,7 +50,7 @@
 - <doc:AccessControl>
 - <doc:AdvancedOperators>
 
-### Language Reference
+### 语言参考
 
 - <doc:AboutTheLanguageReference>
 - <doc:LexicalStructure>
@@ -63,9 +63,10 @@
 - <doc:GenericParametersAndArguments>
 - <doc:SummaryOfTheGrammar>
 
-### Revision History
+### 修订历史
 
 - <doc:RevisionHistory>
+- <doc:ChangeLog>
 
 <!--
 This source file is part of the Swift.org open source project
